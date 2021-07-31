@@ -1,5 +1,5 @@
-def valid_number(number_string)
-  number_string.to_i.to_s == number_string && number_string.to_i != 0
+def valid_number(num)
+  num.to_i.to_s == num || num.to_f.to_s == num
 end
 
 def acquire_number
