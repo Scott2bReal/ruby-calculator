@@ -13,30 +13,27 @@ def acquire_number
   end
 end
 
-def operate(num1, num2)
+loop do
+  puts "Welcome to Scott's Calculator!"
+
+  num1 = acquire_number
+  num2 = acquire_number
+
   loop do
     print('What would you like to do with these numbers? ')
     operator = gets.chomp
-    # Not working yet
+    # Ruby needs an operator it can use
     begin
       operation = "#{num1} #{operator} #{num2}"
       puts "#{operation} = #{eval(operation)}"
       break
-    rescue
+      # This was the only error type I saw in testing. More could be possible...
+    rescue SyntaxError
       puts "Sorry, I couldn't understand that."
       next
     end
   end
-end
 
-loop do
-  puts "Welcome to Scott's Calculator!"
-
-  number1 = acquire_number
-  number2 = acquire_number
-  
-  # Needs error catching!!
-  operate(number1, number2)
   print('Press q to stop calculating (any key to continue)')
   answer = gets.chomp
   break if answer.downcase == 'q'
