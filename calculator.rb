@@ -3,6 +3,7 @@ def valid_number(number_string)
 end
 
 def acquire_number
+  # This will sanitize input for the eval later
   print('Please enter a number: ')
   loop do
     answer = gets.chomp
@@ -16,6 +17,7 @@ def operate(num1, num2)
   loop do
     print('What would you like to do with these numbers? ')
     operator = gets.chomp
+    # Not working yet
     begin
       operation = "#{num1} #{operator} #{num2}"
       puts "#{operation} = #{eval(operation)}"
@@ -32,7 +34,8 @@ loop do
 
   number1 = acquire_number
   number2 = acquire_number
-
+  
+  # Needs error catching!!
   operate(number1, number2)
   print('Press q to stop calculating (any key to continue)')
   answer = gets.chomp
