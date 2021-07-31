@@ -1,5 +1,5 @@
-# From Launch School basic exercises
 def valid_number(num)
+  # From Launch School basic exercises
   num.to_i.to_s == num || num.to_f.to_s == num
 end
 
@@ -15,10 +15,10 @@ def acquire_number
 end
 
 loop do
-  puts "Welcome to Scott's Calculator!"
+  puts "\nWelcome to Scott's Calculator!"
 
-  num1 = acquire_number
-  num2 = acquire_number
+  num1 = acquire_number.to_f
+  num2 = acquire_number.to_f
 
   loop do
     print('What would you like to do with these numbers? ')
@@ -26,16 +26,16 @@ loop do
     # Ruby needs an operator it can use
     begin
       operation = "#{num1} #{operator} #{num2}"
-      puts "#{operation} = #{eval(operation)}"
+      puts "\n#{operation} = #{eval(operation)}"
       break
-      # This was the only error type I saw in testing. More could be possible...
+    # This was the only error type I saw in testing. More could be possible...
     rescue SyntaxError
       puts "Sorry, I couldn't understand that."
       next
     end
   end
 
-  print('Press q to stop calculating (any key to continue)')
+  print("\nPress q to stop calculating (any key to continue)")
   answer = gets.chomp
   break if answer.downcase == 'q'
 end
